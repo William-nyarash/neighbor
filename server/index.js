@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
-
+const multer = require('multer');
 
 const app = express();
 app.use(cors())
+ const upload = multer({dest: 'backen/images/'});
 // login
 app.get('/getin',(req,res)=>{
 
@@ -24,10 +25,8 @@ app.get('/reset',(req,res)=>{
 });
 
 // upload a product
-app.post('/uploads',(req,res)=>{
-   const{name,picture,description,price,seller} = req.body
-     console.log(name,"\n",picture,"\n",description,"\n",price,"\n",seller);
-//    res.save("ale");
+app.post('/uploads',upload.single('file'),(req,res)=>{
+res.send(`file uploaded successfully:${req.file.originalame}`)
 });
 // products
 app.get('/product/listed',(req,res)=>{
