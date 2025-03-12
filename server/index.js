@@ -8,33 +8,33 @@ const app = express();
 app.use(cors())
  const upload = multer({dest: 'backen/images/'});
 // login
-app.get('/getin',(req,res)=>{
+app.get('/getin',async(req,res)=>{
 
 });
 
 // register
-app.post('/registration',(req,res)=>{
+app.post('/registration',async (req,res)=>{
     console.log(res.body);
  res.json("HUrray");
 });
 
 // reset account
-app.get('/reset',(req,res)=>{
+app.get('/reset',async (req,res)=>{
 
     res.json();
 });
 
 // upload a product
-app.post('/uploads',upload.single('file'),(req,res)=>{
+app.post('/uploads',upload.single('file'),async (req,res)=>{
 res.send(`file uploaded successfully:${req.file.originalame}`)
 });
 // products
-app.get('/product/listed',(req,res)=>{
+app.get('/product/listed',async (req,res)=>{
 
 });
 
 // full product detatils
-app.get('/select/product/:id',(req,res)=>{
+app.get('/select/product/:id',async (req,res)=>{
     // const myProduct = Product.findById(req.params.id)
     //     .then()
     res.json(productIs)
@@ -42,5 +42,5 @@ app.get('/select/product/:id',(req,res)=>{
 const PORT = 5093;
 
 app.listen(PORT,()=>{
-    console.log(`server is running \non port ${PORT}`);
+    console.log(`server is running`);
 });
