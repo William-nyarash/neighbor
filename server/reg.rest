@@ -1,8 +1,0 @@
-POST http://localhost:3000/registration HTTP/1.1
-Content-Type: application/json
-
-{
-    "name":"lale"
-}
-
-# GET http://localhost:3000/select/product/1 HTTP/1.1
